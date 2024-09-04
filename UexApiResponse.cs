@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace SplenSoft.UexNet;
 
-public abstract class UexApiResponse
+public class UexApiResponse
 {
     public UexApiResponse() { }
 
@@ -34,13 +34,9 @@ public abstract class UexApiResponse
     public UexRequestResult RequestResult { get; private set; }
 
     [OnDeserialized]
-    protected virtual void OnDeserialized(StreamingContext context)
+    protected void OnDeserialized(StreamingContext context)
     {
-        if (Success)
-        {
-            OnSuccessfulRequest();
-        }
-        else if (Status == "error")
+        if (Status == "error")
         {
             RequestResult = UexRequestResult.InternalServerError;
         }
@@ -53,6 +49,4 @@ public abstract class UexApiResponse
             RequestResult = UexRequestResult.ApiLimitReached;
         }
     }
-
-    protected abstract void OnSuccessfulRequest();
 }

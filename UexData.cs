@@ -35,7 +35,7 @@ public abstract class UexData
     protected int DateAddedUnix { get; set; }
 
     [OnDeserialized]
-    protected virtual void OnDeserialized(StreamingContext context)
+    protected void OnDeserialized(StreamingContext context)
     {
         // Get DateTimes from unix timestamps
         DateModified = DateTimeOffset
