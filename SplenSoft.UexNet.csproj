@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>UEX .NET</Title>
-    <Version>0.1.0</Version>
+    <Version>0.2.1</Version>
     <Authors>SplenSoft</Authors>
     <Description>.NET implementation of UEXCorp's Star Citizen data API.</Description>
     <Copyright>Copyright 2024 SplenSoft LLC</Copyright>
@@ -16,7 +16,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>uex;starcitizen;cargo;</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>Initial release. Likely to be bugged or broken</PackageReleaseNotes>
+    <PackageReleaseNotes>Pre-release. Likely to be bugged or broken.
+
+0.1.1 - Adjusted access modifiers
+0.2.1 - Allow casting terminals/commodities to derived classes</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

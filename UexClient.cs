@@ -36,11 +36,39 @@ public class UexClient
     }
 
     /// <summary>
+    /// Gets all terminals from the UEX API, casted to a derived 
+    /// class of <see cref="UexTerminal"/>
+    /// </summary>
+    public async Task<UexListResponse<T>?> GetTerminals<T>() 
+        where T: UexTerminal
+    {
+        var task = ListRequest<T>(
+            _uriGetAllTerminals);
+
+        await task;
+        return task.Result;
+    }
+
+    /// <summary>
     /// Gets all commodities from the UEX API
     /// </summary>
     public async Task<UexListResponse<UexTerminalCommodity>?> GetCommodities()
     {
         var task = ListRequest<UexTerminalCommodity>(
+            _uriGetAllCommodities);
+
+        await task;
+        return task.Result;
+    }
+
+    /// <summary>
+    /// Gets all terminal commodities from the UEX API, casted 
+    /// to a derived class of <see cref="UexTerminalCommodity"/>
+    /// </summary>
+    public async Task<UexListResponse<T>?> GetCommodities<T>() 
+        where T : UexTerminalCommodity
+    {
+        var task = ListRequest<T>(
             _uriGetAllCommodities);
 
         await task;
