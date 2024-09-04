@@ -13,8 +13,6 @@ public class UexListResponse<T> : UexApiResponse
         UexRequestResult requestResult)
         : base(httpResponse, requestResult) { }
 
-    public List<T> List { get; set; } = [];
-
     [JsonProperty("data")]
     private JArray? JArrayData { get; set; }
 
