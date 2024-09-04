@@ -57,6 +57,6 @@ if (terminalsTask.Result != null &&
 else
 {
     // Handle failure
-    // read commoditiesTask.Result.RequestResult
+    // read terminalsTask.Result.RequestResult
 }
 ```
