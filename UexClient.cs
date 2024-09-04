@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace SplenSoft.UexNet;
 
-internal partial class UexClient
+public class UexClient
 {
     private const string _uriStart = "https://uexcorp.space/api/2.0/";
     private const string _uriGetAllCommodities = $"{_uriStart}commodities_prices_all";
