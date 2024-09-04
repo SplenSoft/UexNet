@@ -3,7 +3,7 @@
 
 # Basic usage
 
-```
+```csharp
 using SplenSoft.UexNet;
 
 // Get api key from https://uexcorp.space/account
