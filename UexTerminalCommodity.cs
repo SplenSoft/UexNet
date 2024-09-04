@@ -52,6 +52,15 @@ internal class UexTerminalCommodity : UexData
     [JsonProperty("commodity_name")]
     public string? Name { get; set; }
 
+    [JsonProperty("terminal_name")]
+    public string? TerminalName { get; set; }
+
+    [JsonProperty("terminal_code")]
+    public string? TerminalCode { get; set; }
+
+    [JsonProperty("terminal_slug")]
+    public string? TerminalSlug { get; set; }
+
     /// <summary>
     /// UEX commodity code
     /// </summary>
