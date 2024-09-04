@@ -1,6 +1,8 @@
 # UexNet
  .NET implementation of UEXCorp's Star Citizen data API. Currently untested/early alpha and likely to not work. Use at your own risk.
 
+ ![NuGet Downloads](https://img.shields.io/nuget/dt/:SplenSoft.UexNet)
+
 # Basic usage
 
 ```csharp
