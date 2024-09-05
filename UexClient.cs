@@ -63,6 +63,20 @@ public class UexClient
     }
 
     /// <summary>
+    /// Gets all individual commodity data, casted to a derived 
+    /// class of <see cref="UexCommodityData"/>
+    /// </summary>
+    public async Task<UexListResponse<T>?> GetCommoditiesData<T>() 
+        where T : UexCommodityData
+    {
+        var task = ListRequest<T>(
+            _uriGetAllCommodities);
+
+        await task;
+        return task.Result;
+    }
+
+    /// <summary>
     /// Gets all terminal commodities from the UEX API
     /// </summary>
     public async Task<UexListResponse<UexTerminalCommodity>?> GetCommodities()
