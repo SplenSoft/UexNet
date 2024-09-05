@@ -89,20 +89,6 @@ public class UexClient
     }
 
     /// <summary>
-    /// Gets all terminal commodities from the UEX API, casted 
-    /// to a derived class of <see cref="UexTerminalCommodity"/>
-    /// </summary>
-    public async Task<UexListResponse<T>?> GetCommodities<T>() 
-        where T : UexTerminalCommodity
-    {
-        var task = ListRequest<T>(
-            _uriGetAllCommodities);
-
-        await task;
-        return task.Result;
-    }
-
-    /// <summary>
     /// Handles API calls that return an array of items
     /// </summary>
     /// <typeparam name="T">Should be a UEX data type</typeparam>
