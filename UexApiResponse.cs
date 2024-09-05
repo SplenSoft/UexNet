@@ -31,7 +31,7 @@ public class UexApiResponse
     public HttpResponseMessage? HttpReponse { get; set; }
 
     [JsonIgnore]
-    public UexRequestResult RequestResult { get; private set; }
+    public UexRequestResult RequestResult { get; set; }
 
     [OnDeserialized]
     protected void OnDeserialized(StreamingContext context)

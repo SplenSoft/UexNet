@@ -16,7 +16,7 @@ public class UexListResponse<T> : UexApiResponse
     [JsonProperty("data")]
     private JArray? JArrayData { get; set; }
 
-    public List<T>? Data { get; private set; }
+    public List<T>? Data { get; set; }
 
     [OnDeserialized]
     protected new void OnDeserialized(StreamingContext context)

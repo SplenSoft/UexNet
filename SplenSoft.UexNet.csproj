@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>UEX .NET</Title>
-    <Version>0.3.6</Version>
+    <Version>0.4.0</Version>
     <Authors>SplenSoft</Authors>
     <Description>.NET implementation of UEXCorp's Star Citizen data API.</Description>
     <Copyright>Copyright 2024 SplenSoft LLC</Copyright>
@@ -18,12 +18,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReleaseNotes>Pre-release.
 
-0.3.0 - Added support for Commodity Data
-0.3.1 - Move "Id" to parent class for UexData derivatives
-0.3.2 - Fix compile error
-0.3.3 - UexCommodityData derived class support
-0.3.5 - Fix stock supply mixup
-0.3.6 - Minor fixes</PackageReleaseNotes>
+0.4.0 - Added vehicles support</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
