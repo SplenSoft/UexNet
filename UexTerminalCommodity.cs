@@ -11,7 +11,7 @@ namespace SplenSoft.UexNet;
 /// A good that can be bought and sold. Exists at a 
 /// <see cref="UexTerminal"/>
 /// </summary>
-internal class UexTerminalCommodity : UexData
+public class UexTerminalCommodity : UexData
 {
     [JsonProperty("id_commodity")]
     public int CommodityId { get; set; }
