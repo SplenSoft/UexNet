@@ -139,13 +139,4 @@ public class UexTerminal : UexData
 
     [JsonProperty("city_name")]
     public string? City { get; set; }
-
-    public bool IsCity => City != null;
-    public bool IsOutpost => Outpost != null;
-    public bool IsSpaceStation => SpaceStation != null;
-
-    /// <summary>
-    /// Has an enclosed, private (instanced) hangar
-    /// </summary>
-    public bool HasPrivateHangars => IsCity || IsSpaceStation;
 }
