@@ -13,15 +13,16 @@ public class UexListResponse<T> : UexApiResponse
         UexRequestResult requestResult)
         : base(httpResponse, requestResult) { }
 
-    public List<T> List { get; set; } = [];
-
     [JsonProperty("data")]
     private JArray? JArrayData { get; set; }
 
     public List<T>? Data { get; private set; }
 
-    protected override void OnSuccessfulRequest()
+    [OnDeserialized]
+    protected new void OnDeserialized(StreamingContext context)
     {
+        base.OnDeserialized(context);
+
         if (JArrayData == null)
         {
             throw new Exception(
@@ -30,11 +31,5 @@ public class UexListResponse<T> : UexApiResponse
 
         Data = JArrayData.ToObject<List<T>>() ??
             throw new Exception($"Couldn't deserialize Jarray");
-    }
-
-    [OnDeserialized]
-    protected new virtual void OnDeserialized(StreamingContext context)
-    {
-        base.OnDeserialized(context);
     }
 }

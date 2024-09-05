@@ -19,7 +19,7 @@ internal partial class Examples
         if (commoditiesTask.Result != null &&
             commoditiesTask.Result.Success)
         {
-            commodities = commoditiesTask.Result.List;
+            commodities = commoditiesTask.Result.Data;
 
             foreach (var commodity in commodities)
             {
@@ -44,7 +44,7 @@ internal partial class Examples
         if (terminalsTask.Result != null &&
             terminalsTask.Result.Success)
         {
-            terminals = terminalsTask.Result.List;
+            terminals = terminalsTask.Result.Data;
 
             foreach (var terminal in terminals)
             {
