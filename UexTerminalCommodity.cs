@@ -32,16 +32,22 @@ public class UexTerminalCommodity : UexData
     public double SellPriceAverage { get; set; }
 
     [JsonProperty("scu_sell_stock")]
-    public double SupplyLastReported { get; set; }
+    public double StockLastReported { get; set; }
 
     [JsonProperty("scu_sell_stock_avg")]
-    public double SupplyAverage { get; set; }
+    public double StockAverage { get; set; }
 
     [JsonProperty("scu_sell")]
     public double DemandLastReported { get; set; }
 
     [JsonProperty("scu_sell_avg")]
     public double DemandAverage { get; set; }
+
+    [JsonProperty("scu_buy")]
+    public double SupplyLastReported { get; set; }
+
+    [JsonProperty("scu_buy_avg")]
+    public double SupplyAverage { get; set; }
 
     [JsonProperty("status_buy")]
     public int StatusBuy { get; set; }
