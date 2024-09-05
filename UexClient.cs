@@ -18,10 +18,14 @@ public class UexClient
     }
 
     private const string _uriStart = "https://uexcorp.space/api/2.0/";
-    private const string _uriGetAllTerminalCommodities = $"{_uriStart}commodities_prices_all";
-    private const string _uriGetAllTerminals = $"{_uriStart}terminals";
-    private const string _uriGetAllCommodities = $"{_uriStart}commodities";
-    private const string _uriGetAllVehicles = $"{_uriStart}vehicles";
+
+    private static Dictionary<Type, string> _urisByType = new()
+    {
+        {typeof(UexTerminalCommodity), $"{_uriStart}commodities_prices_all" },
+        {typeof(UexCommodityData), $"{_uriStart}commodities" },
+        {typeof(UexTerminal), $"{_uriStart}terminals" },
+        {typeof(UexVehicle), $"{_uriStart}vehicles" },
+    };
 
     private readonly HttpClient _httpClient = new();
 
@@ -37,7 +41,7 @@ public class UexClient
     /// </summary>
     public async Task<UexListResponse<T>?> GetTerminals<T>() 
         where T : UexTerminal
-        => await ListRequest<T>(_uriGetAllTerminals);
+        => await ListRequest<T>();
 
     /// <summary>
     /// Gets all individual commodity data
@@ -51,7 +55,7 @@ public class UexClient
     /// </summary>
     public async Task<UexListResponse<T>?> GetCommoditiesData<T>() 
         where T : UexCommodityData
-        => await ListRequest<T>(_uriGetAllCommodities);
+        => await ListRequest<T>();
 
     /// <summary>
     /// Gets all terminal commodities from the UEX API
@@ -65,7 +69,7 @@ public class UexClient
     /// </summary>
     public async Task<UexListResponse<T>?> GetCommodities<T>() 
         where T : UexTerminalCommodity
-        => await ListRequest<T>(_uriGetAllTerminalCommodities);
+        => await ListRequest<T>();
 
     /// <summary>
     /// Gets all vehicles from the UEX API
@@ -79,13 +83,14 @@ public class UexClient
     /// </summary>
     public async Task<UexListResponse<T>?> GetVehicles<T>()
         where T : UexVehicle
-        => await ListRequest<T>(_uriGetAllVehicles);
+        => await ListRequest<T>();
 
     /// <summary>
     /// Handles API calls that return an array of items
     /// </summary>
     /// <typeparam name="T">Should be a UEX data type</typeparam>
-    private async Task<UexListResponse<T>?> ListRequest<T>(string uri)
+    private async Task<UexListResponse<T>?> ListRequest<T>(string uri) 
+        where T : UexData
     {
         var httpResponse = await _httpClient.GetAsync(uri);
 
@@ -104,5 +109,21 @@ public class UexClient
                 Message = content,
                 RequestResult = UexRequestResult.DeserializationError
             };
+    }
+
+    /// <summary>
+    /// Handles API calls that return an array of items. 
+    /// Automatically supplies a URI based on type / parent type
+    /// </summary>
+    /// <typeparam name="T">Should be a UEX data type</typeparam>
+    private async Task<UexListResponse<T>?> ListRequest<T>()
+        where T : UexData
+    {
+        if (!_urisByType.TryGetValue(typeof(T), out string uri)) 
+        {
+            throw new Exception($"Unhandled type {typeof(T)}");
+        }
+
+        return await ListRequest<T>(uri);
     }
 }
