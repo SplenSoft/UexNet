@@ -119,11 +119,23 @@ public class UexClient
     public async Task<UexListResponse<T>?> ListRequest<T>()
         where T : UexData
     {
-        if (!_urisByType.TryGetValue(typeof(T), out string uri)) 
+        List<Type> typesToTest = [];
+        typesToTest.Add(typeof(T));
+        Type? curentBase = typeof(T).BaseType;
+        while (curentBase != null) 
         {
-            throw new Exception($"Unhandled type {typeof(T)}");
+            typesToTest.Add(curentBase);
+            curentBase = curentBase.BaseType;
         }
 
-        return await ListRequest<T>(uri);
+        foreach (var type in typesToTest)
+        {
+            if (_urisByType.TryGetValue(type, out string uri))
+            {
+                return await ListRequest<T>(uri);
+            }
+        }
+        
+        throw new Exception($"Unhandled type {typeof(T)}");
     }
 }
