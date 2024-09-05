@@ -116,7 +116,7 @@ public class UexClient
     /// Automatically supplies a URI based on type / parent type
     /// </summary>
     /// <typeparam name="T">Should be a UEX data type</typeparam>
-    private async Task<UexListResponse<T>?> ListRequest<T>()
+    public async Task<UexListResponse<T>?> ListRequest<T>()
         where T : UexData
     {
         if (!_urisByType.TryGetValue(typeof(T), out string uri)) 
