@@ -5,9 +5,6 @@ namespace SplenSoft.UexNet;
 
 public class UexTerminal : UexData
 {
-    [JsonProperty("id")]
-    public int Id { get; set; }
-
     [JsonProperty("id_star_system")]
     public int StarSystemId { get; set; }
 

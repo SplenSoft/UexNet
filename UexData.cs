@@ -10,6 +10,9 @@ namespace SplenSoft.UexNet;
 
 public abstract class UexData
 {
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
     /// <summary>
     /// Presumably UTC
     /// </summary>

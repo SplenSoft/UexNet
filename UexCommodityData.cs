@@ -13,9 +13,6 @@ public class UexCommodityData : UexData
     // substitution: [JsonProperty("$1$2$3$4$5")] $7\npublic $6 \U$1\E$2\U$4\E$5 { get; set; }
     // https://regex101.com/r/BlSvyx/1
 
-    [JsonProperty("id")]
-    public int Id { get; set; }
-
     [JsonProperty("id_parent")]
     public int IdParent { get; set; }
 
