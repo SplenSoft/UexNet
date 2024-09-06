@@ -12,14 +12,13 @@ internal partial class Examples
 
         // Get commodities
         List<UexTerminalCommodity> commodities;
-        var commoditiesTask = client.GetCommodities();
+        var commoditiesTask = await client.ListRequest<UexTerminalCommodity>();
 
-        await commoditiesTask;
-
-        if (commoditiesTask.Result != null &&
-            commoditiesTask.Result.Success)
+        if (commoditiesTask != null &&
+            commoditiesTask.Success && 
+            commoditiesTask.Data != null)
         {
-            commodities = commoditiesTask.Result.Data;
+            commodities = commoditiesTask.Data;
 
             foreach (var commodity in commodities)
             {
@@ -37,14 +36,13 @@ internal partial class Examples
 
         // Get terminals
         List<UexTerminal> terminals;
-        var terminalsTask = client.GetTerminals();
+        var terminalsTask = await client.ListRequest<UexTerminal>();
 
-        await terminalsTask;
-
-        if (terminalsTask.Result != null &&
-            terminalsTask.Result.Success)
+        if (terminalsTask != null &&
+            terminalsTask.Success && 
+            terminalsTask.Data != null)
         {
-            terminals = terminalsTask.Result.Data;
+            terminals = terminalsTask.Data;
 
             foreach (var terminal in terminals)
             {

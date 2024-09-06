@@ -30,62 +30,6 @@ public class UexClient
     private readonly HttpClient _httpClient = new();
 
     /// <summary>
-    /// Gets all terminals from the UEX API
-    /// </summary>
-    public async Task<UexListResponse<UexTerminal>?> GetTerminals()
-        => await GetTerminals<UexTerminal>();
-
-    /// <summary>
-    /// Gets all terminals from the UEX API, casted to a derived 
-    /// class of <see cref="UexTerminal"/>
-    /// </summary>
-    public async Task<UexListResponse<T>?> GetTerminals<T>() 
-        where T : UexTerminal
-        => await ListRequest<T>();
-
-    /// <summary>
-    /// Gets all individual commodity data
-    /// </summary>
-    public async Task<UexListResponse<UexCommodityData>?> GetCommoditiesData()
-        => await GetCommoditiesData<UexCommodityData>();
-
-    /// <summary>
-    /// Gets all individual commodity data, casted to a derived 
-    /// class of <see cref="UexCommodityData"/>
-    /// </summary>
-    public async Task<UexListResponse<T>?> GetCommoditiesData<T>() 
-        where T : UexCommodityData
-        => await ListRequest<T>();
-
-    /// <summary>
-    /// Gets all terminal commodities from the UEX API
-    /// </summary>
-    public async Task<UexListResponse<UexTerminalCommodity>?> GetCommodities()
-        => await GetCommodities<UexTerminalCommodity>();
-
-    /// <summary>
-    /// Gets all terminal commodities from the UEX API, casted 
-    /// to a derived class of <see cref="UexTerminalCommodity"/>
-    /// </summary>
-    public async Task<UexListResponse<T>?> GetCommodities<T>() 
-        where T : UexTerminalCommodity
-        => await ListRequest<T>();
-
-    /// <summary>
-    /// Gets all vehicles from the UEX API
-    /// </summary>
-    public async Task<UexListResponse<UexVehicle>?> GetVehicles()
-        => await GetVehicles<UexVehicle>();
-
-    /// <summary>
-    /// Gets all vehicles from the UEX API, casted 
-    /// to a derived class of <see cref="UexVehicle"/>
-    /// </summary>
-    public async Task<UexListResponse<T>?> GetVehicles<T>()
-        where T : UexVehicle
-        => await ListRequest<T>();
-
-    /// <summary>
     /// Handles API calls that return an array of items
     /// </summary>
     /// <typeparam name="T">Should be a UEX data type</typeparam>
