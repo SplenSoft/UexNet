@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>UEX .NET</Title>
-    <Version>0.4.3</Version>
+    <Version>0.4.4</Version>
     <Authors>SplenSoft</Authors>
     <Description>.NET implementation of UEXCorp's Star Citizen data API.</Description>
     <Copyright>Copyright 2024 SplenSoft LLC</Copyright>
@@ -21,7 +21,8 @@
 0.4.0 - Added vehicles support
 0.4.1 - Added more robust derived type support
 0.4.2 - Allow public access to UexClient.ListRequest
-0.4.3 - Fix unhandled types in list request</PackageReleaseNotes>
+0.4.3 - Fix unhandled types in list request
+0.4.4 - Fix vehicle deserialization</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

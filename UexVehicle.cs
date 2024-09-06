@@ -153,8 +153,12 @@ public class UexVehicle : UexData
     [JsonProperty("url_video")]
     public string? UrlVideo { get; set; }
 
+    /// <summary>
+    /// A string representing a json array. 
+    /// Will need further deserialized to be read
+    /// </summary>
     [JsonProperty("url_photos")]
-    public List<string>? UrlsPhotos { get; set; }
+    public string? UrlsPhotos { get; set; }
 
     /// <summary>
     /// Star Citizen Version it was announced or updated
