@@ -50,10 +50,10 @@ public class UexTerminalCommodity : UexData
     public double SupplyAverage { get; set; }
 
     [JsonProperty("status_buy")]
-    public int StatusBuy { get; set; }
+    public InventoryState StatusBuy { get; set; }
 
     [JsonProperty("status_sell")]
-    public int StatusSell { get; set; }
+    public InventoryState StatusSell { get; set; }
 
     [JsonProperty("commodity_name")]
     public string? Name { get; set; }
