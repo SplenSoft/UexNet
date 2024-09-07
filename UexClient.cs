@@ -30,6 +30,18 @@ public class UexClient
     private readonly HttpClient _httpClient = new();
 
     /// <summary>
+    /// Needed to make POST requests
+    /// </summary>
+    /// <param name="secretKey">
+    /// Obtained on the account page: 
+    /// <see href="https://uexcorp.space/account"/>
+    /// </param>
+    public void AddSecretKey(string secretKey)
+    {
+        _httpClient.DefaultRequestHeaders.Add("secret_key", secretKey);
+    }
+
+    /// <summary>
     /// Handles API calls that return an array of items
     /// </summary>
     /// <typeparam name="T">Should be a UEX data type</typeparam>
