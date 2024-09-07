@@ -6,31 +6,31 @@ namespace SplenSoft.UexNet;
 public class UexTerminal : UexData
 {
     [JsonProperty("id_star_system")]
-    public int StarSystemId { get; set; }
+    public int? StarSystemId { get; set; }
 
     [JsonProperty("id_planet")]
-    public int PlanetId { get; set; }
+    public int? PlanetId { get; set; }
 
     [JsonProperty("id_orbit")]
-    public int OrbitId { get; set; }
+    public int? OrbitId { get; set; }
 
     [JsonProperty("id_moon")]
-    public int MoonId { get; set; }
+    public int? MoonId { get; set; }
 
     [JsonProperty("id_space_station")]
-    public int SpaceStationId { get; set; }
+    public int? SpaceStationId { get; set; }
 
     [JsonProperty("id_outpost")]
-    public int OutpostId { get; set; }
+    public int? OutpostId { get; set; }
 
     [JsonProperty("id_poi")]
-    public int PointOfInterestId { get; set; }
+    public int? PointOfInterestId { get; set; }
 
     [JsonProperty("id_city")]
-    public int CityId { get; set; }
+    public int? CityId { get; set; }
 
     [JsonProperty("id_faction")]
-    public int FactionId { get; set; }
+    public int? FactionId { get; set; }
 
     [JsonProperty("name")]
     public string? Name { get; set; }
@@ -63,7 +63,7 @@ public class UexTerminal : UexData
     /// Maximum container size operated by freight elevator (in SCU)
     /// </summary>
     [JsonProperty("mcs")]
-    public int MaxContainerSizeFreightElevatorScu { get; set; }
+    public int? MaxContainerSizeFreightElevatorScu { get; set; }
 
     [JsonProperty("is_available")] // is available in-game
     public bool IsAvailable { get; set; }
